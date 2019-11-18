@@ -14,12 +14,20 @@ export class MainComponent extends Component {
     }
 
     addItemComponent = () => {
-        // this.setState(state => ({ showAddComponent: !state.showAddComponent }))
+        this.setState(state => ({ showAddComponent: !state.showAddComponent }))
         console.log(this.state.showAddComponent);
     }
 
+    updateState = (value) => {
+        console.log(value);
+        this.setState(prevState => ({
+            data: [...prevState.data, value]
+        }))
+        console.log(this.state);
+    }
+
     render () {
-        const items = this.state.data.map(item => <ItemComponent key={item} data={item} />);
+        const items = this.state.data.map((item, index) => <ItemComponent key={index} data={item} />);
         return (
             <main>
                 <section className="action-row flex">
@@ -27,7 +35,7 @@ export class MainComponent extends Component {
                 </section>
                 <section className="todo-container">{items}</section>
                 <section className="add-container">
-                    <AddComponent showAddComponent={this.state.showAddComponent} />
+                    <AddComponent showAddComponent={this.state.showAddComponent} updateState={this.updateState} />
                 </section>
             </main>
         )

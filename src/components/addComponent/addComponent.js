@@ -10,13 +10,19 @@ export class AddComponent extends Component {
         }
     }
 
+    handleOnSubmit = (event) => {
+        event.preventDefault();
+        this.props.updateState(event.target[0].value);
+        event.target[0].value = '';
+    }
+
     render () {
         if (this.props.showAddComponent) {
             return (
-                <div className="add-wrapper flex">
+                <form className="add-wrapper flex" onSubmit={this.handleOnSubmit}>
                     <input type="text" />
                     <ButtonComponent name="Submit" />
-                </div>
+                </form>
             )
         } else {
             return null;
