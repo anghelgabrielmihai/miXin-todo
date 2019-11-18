@@ -23,9 +23,11 @@ export class MainComponent extends Component {
     }
 
     updateState = (value) => {
-        this.setState(prevState => ({
-            data: [...prevState.data, value]
-        }));
+        this.setState((prevState) => {
+            return {
+                data: [...prevState.data, { id: prevState.data.pop().id + 1, value }]
+            }
+        });
     }
 
     deleteState = (value) => {
