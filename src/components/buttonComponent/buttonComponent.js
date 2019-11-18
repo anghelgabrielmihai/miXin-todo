@@ -10,6 +10,6 @@ export class ButtonComponent extends Component {
     }
 
     render () {
-        return (<button>{this.props.name}</button>)
+        return (<button onClick={this.props.methodToCall}>{this.props.name}</button>)
     }
 }

@@ -12,8 +12,8 @@ export class ItemComponent extends Component {
 
     render () {
         return (
-            <div class="todo-wrapper flex">
-                <div class="flex">
+            <div className="todo-wrapper flex">
+                <div className="flex">
                     <span>{this.props.data}</span>
                 </div>
                 <CheckboxComponent></CheckboxComponent>

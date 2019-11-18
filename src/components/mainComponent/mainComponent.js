@@ -7,7 +7,15 @@ export class MainComponent extends Component {
     constructor(props) {
         super(props)
 
-        this.state = { data: ['1', '2', '3', '4'] };
+        this.state = {
+            data: ['1', '2', '3', '4'],
+            showAddComponent: false
+        };
+    }
+
+    addItemComponent = () => {
+        // this.setState(state => ({ showAddComponent: !state.showAddComponent }))
+        console.log(this.state.showAddComponent);
     }
 
     render () {
@@ -15,10 +23,12 @@ export class MainComponent extends Component {
         return (
             <main>
                 <section className="action-row flex">
-                    <ButtonComponent className="action-button flex" name="Add" />
+                    <ButtonComponent className="action-button flex" name="Add" methodToCall={this.addItemComponent} />
                 </section>
-                <section class="todo-container">{items}</section>
-                <AddComponent />
+                <section className="todo-container">{items}</section>
+                <section className="add-container">
+                    <AddComponent showAddComponent={this.state.showAddComponent} />
+                </section>
             </main>
         )
     }
