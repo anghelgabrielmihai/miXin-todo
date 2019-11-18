@@ -1,0 +1,12 @@
+main {
+  padding: 0px 50px 0px 50px;
+  flex-direction: column;
+}
+
+.action-row {
+  justify-content: flex-end;
+}
+
+.todo-container {
+  padding: 20px;
+}

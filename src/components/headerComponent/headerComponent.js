@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
+import './headerComponent.css';
 
 export class HeaderComponent extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+
+        }
+    }
+
     render () {
         return (
-            <div>
+            <header className="flex">
                 <h1 className="flex">{this.props.title}</h1>
-            </div>
+            </header>
         )
     }
 }
