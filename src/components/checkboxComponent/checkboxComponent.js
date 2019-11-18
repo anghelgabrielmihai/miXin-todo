@@ -10,11 +10,16 @@ export class CheckboxComponent extends Component {
         }
     }
 
+    handleOnDelete = (event) => {
+        event.preventDefault();
+        this.props.deleteState(this.props.id);
+    }
+
     render () {
         return (
             <div className="flex">
                 <input type="checkbox" />
-                <ButtonComponent name="Delete" />
+                <ButtonComponent methodToCall={this.handleOnDelete} name="Delete" />
             </div>
         )
     }

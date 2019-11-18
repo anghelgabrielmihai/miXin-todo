@@ -27,6 +27,5 @@ export class AddComponent extends Component {
         } else {
             return null;
         }
-
     }
 }

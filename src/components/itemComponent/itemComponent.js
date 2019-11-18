@@ -14,9 +14,9 @@ export class ItemComponent extends Component {
         return (
             <div className="todo-wrapper flex">
                 <div className="flex">
-                    <span>{this.props.data}</span>
+                    <span>{this.props.data.value}</span>
                 </div>
-                <CheckboxComponent></CheckboxComponent>
+                <CheckboxComponent deleteState={this.props.deleteState} id={this.props.data.id}></CheckboxComponent>
             </div>
         )
     }

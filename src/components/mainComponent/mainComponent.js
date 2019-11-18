@@ -8,26 +8,33 @@ export class MainComponent extends Component {
         super(props)
 
         this.state = {
-            data: ['1', '2', '3', '4'],
+            data: [
+                { id: 1, value: 'Test1' },
+                { id: 2, value: 'Test2' },
+                { id: 3, value: 'Test3' },
+                { id: 4, value: 'Test4' }
+            ],
             showAddComponent: false
         };
     }
 
     addItemComponent = () => {
         this.setState(state => ({ showAddComponent: !state.showAddComponent }))
-        console.log(this.state.showAddComponent);
     }
 
     updateState = (value) => {
-        console.log(value);
         this.setState(prevState => ({
             data: [...prevState.data, value]
-        }))
-        console.log(this.state);
+        }));
+    }
+
+    deleteState = (value) => {
+        const items = this.state.data.filter(item => item.id !== value)
+        this.setState({ data: items });
     }
 
     render () {
-        const items = this.state.data.map((item, index) => <ItemComponent key={index} data={item} />);
+        const items = this.state.data.map(item => <ItemComponent deleteState={this.deleteState} key={item.id} data={item} />);
         return (
             <main>
                 <section className="action-row flex">
