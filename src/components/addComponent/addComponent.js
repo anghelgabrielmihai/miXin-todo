@@ -2,18 +2,14 @@ import React, { Component } from 'react'
 import { ButtonComponent } from '../buttonComponent/buttonComponent'
 import './addComponent.css';
 export class AddComponent extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-
-        }
-    }
-
     handleOnSubmit = (event) => {
         event.preventDefault();
-        this.props.updateState(event.target[0].value);
-        event.target[0].value = '';
+        if (event.target[0].value === '') {
+            alert('Please add a title.')
+        } else {
+            this.props.updateState(event.target[0].value);
+            event.target.reset();
+        }
     }
 
     render () {

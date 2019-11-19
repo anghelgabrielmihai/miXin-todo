@@ -12,11 +12,15 @@ export class ItemComponent extends Component {
 
     render () {
         return (
-            <div className="todo-wrapper flex">
+            <div className={`todo-wrapper flex ${this.props.data.done ? `done` : ``}`}>
                 <div className="flex">
                     <span>{this.props.data.value}</span>
                 </div>
-                <CheckboxComponent deleteState={this.props.deleteState} id={this.props.data.id}></CheckboxComponent>
+                <CheckboxComponent 
+                    deleteState={this.props.deleteState} 
+                    handleDone={this.props.handleDone}
+                    id={this.props.data.id}
+                />
             </div>
         )
     }

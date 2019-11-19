@@ -3,3 +3,7 @@
     margin: 5px 0px;
     justify-content: space-between;
 }
+
+.todo-wrapper.done {
+    background: purple;
+}
